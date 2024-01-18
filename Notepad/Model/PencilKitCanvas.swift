@@ -58,3 +58,18 @@ struct PencilKitCanvas: UIViewRepresentable {
         
 }
 }
+
+
+enum ToolType: String, CaseIterable {
+    case pen = "Pen"
+    case pencil = "Pencil"
+    case marker = "Marker"
+    case crayon = "Crayon"
+    case eraser = "Eraser"
+    case lasso = "lasso"
+}
+
+enum EraserType: String {
+    case vector = "Vector"
+    case bitmap = "Bitmap"
+}

@@ -19,6 +19,7 @@
 		DD23607D2B556DEA00FE277F /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD23607C2B556DEA00FE277F /* ModelData.swift */; };
 		DD23607F2B556E6400FE277F /* SubjectsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD23607E2B556E6400FE277F /* SubjectsList.swift */; };
 		DD2360832B5588FC00FE277F /* PencilKitCanvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2360822B5588FC00FE277F /* PencilKitCanvas.swift */; };
+		DDD54CAF2B5961460006B835 /* DrawingHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD54CAE2B5961460006B835 /* DrawingHeader.swift */; };
 		DDD71B032B56C84A00162E08 /* NotesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD71B022B56C84A00162E08 /* NotesList.swift */; };
 		DDF5820F2B540CA0003A5178 /* FileManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF5820E2B540CA0003A5178 /* FileManger.swift */; };
 		DDF582112B542A09003A5178 /* TimeTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF582102B542A09003A5178 /* TimeTable.swift */; };
@@ -38,6 +39,7 @@
 		DD23607C2B556DEA00FE277F /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		DD23607E2B556E6400FE277F /* SubjectsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectsList.swift; sourceTree = "<group>"; };
 		DD2360822B5588FC00FE277F /* PencilKitCanvas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PencilKitCanvas.swift; sourceTree = "<group>"; };
+		DDD54CAE2B5961460006B835 /* DrawingHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingHeader.swift; sourceTree = "<group>"; };
 		DDD71B022B56C84A00162E08 /* NotesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesList.swift; sourceTree = "<group>"; };
 		DDF5820E2B540CA0003A5178 /* FileManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManger.swift; sourceTree = "<group>"; };
 		DDF582102B542A09003A5178 /* TimeTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTable.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 			children = (
 				DD0F5C402B53DEDA00D2A5D6 /* ContentView.swift */,
 				DD0F5C502B53E8DD00D2A5D6 /* DrawingView.swift */,
+				DDD54CAE2B5961460006B835 /* DrawingHeader.swift */,
 				DDF582102B542A09003A5178 /* TimeTable.swift */,
 				DD23607E2B556E6400FE277F /* SubjectsList.swift */,
 				DDD71B022B56C84A00162E08 /* NotesList.swift */,
@@ -187,6 +190,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD0F5C4F2B53E30700D2A5D6 /* ColorPickerView.swift in Sources */,
+				DDD54CAF2B5961460006B835 /* DrawingHeader.swift in Sources */,
 				DD0F5C412B53DEDA00D2A5D6 /* ContentView.swift in Sources */,
 				DD0F5C512B53E8DD00D2A5D6 /* DrawingView.swift in Sources */,
 				DD2360832B5588FC00FE277F /* PencilKitCanvas.swift in Sources */,
@@ -335,6 +339,8 @@
 				DEVELOPMENT_TEAM = S63358CS86;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Notepad;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -351,7 +357,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -366,6 +372,8 @@
 				DEVELOPMENT_TEAM = S63358CS86;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Notepad;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -382,7 +390,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

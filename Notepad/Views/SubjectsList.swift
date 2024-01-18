@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct SubjectsList: View {
+    
     @Environment(ModelData.self) var modelData:ModelData
     @State private var isShowingSheet:Bool=false
     @State private var newSubjectName:String=""
-    @State private var selectedSubject: subject?
+    @State private var selectedSubject: subject? = ModelData().subjectsList[0]
     @State private var showingDeleteAlert=false
     @State private var editingSubject:subject?
     @State private var newEditedSubjectName:String=""
@@ -36,7 +37,8 @@ struct SubjectsList: View {
                             }
                     }else{
                         NavigationLink(
-                            destination: DrawingView(subject:subject).id(subject.id),
+//                            destination: DrawingView(subject:subject).id(subject.id),
+                            destination:NotesList(subject: subject,subjectIndex:modelData.subjectsList.firstIndex(where: {$0.id==subject.id}) ?? -1),
                             tag: subject,
                             selection: $selectedSubject
                                             
@@ -91,7 +93,10 @@ struct SubjectsList: View {
                     
                 }
             }
+            .navigationTitle("Subjects")
+
             .onAppear{
+                print("onAppear : \(self.selectedSubject?.name ?? "none")")
                 if(selectedSubject == nil)
                 {
                     selectedSubject=modelData.subjectsList.first
@@ -108,17 +113,21 @@ struct SubjectsList: View {
                     VStack {
                         TextField("Enter something...", text: $newSubjectName)
                             .padding()
-                        Button("Submit") {
-                            let newSubject=subject(name: newSubjectName)
-                            withAnimation{
-                                modelData.subjectsList.append(newSubject)
+                        Button("Add") {
+                            if(newSubjectName != ""){
+                                
+                                
+                                let newSubject=subject(name: newSubjectName)
+                                withAnimation{
+                                    modelData.subjectsList.append(newSubject)
+                                }
+                                
+                                newSubjectName = ""
+                                isShowingSheet=false
+                                
+                                modelData.saveData()
                             }
-                            
-                            newSubjectName = ""
-                            isShowingSheet=false
-                                                        
-                            modelData.saveData()
-                        }
+                        }  
                         .padding()
                     }
                     .padding()
@@ -127,12 +136,12 @@ struct SubjectsList: View {
         }
 //        .listStyle(SidebarListStyle())
         
-        .navigationTitle("Subjects")
         }
     }
 
 
 #Preview {
+    
     SubjectsList()
         .environment(ModelData())
 }
