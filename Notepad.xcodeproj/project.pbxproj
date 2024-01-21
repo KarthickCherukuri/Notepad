@@ -11,21 +11,19 @@
 		DD0F5C412B53DEDA00D2A5D6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0F5C402B53DEDA00D2A5D6 /* ContentView.swift */; };
 		DD0F5C432B53DEDB00D2A5D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD0F5C422B53DEDB00D2A5D6 /* Assets.xcassets */; };
 		DD0F5C462B53DEDB00D2A5D6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD0F5C452B53DEDB00D2A5D6 /* Preview Assets.xcassets */; };
-		DD0F5C4D2B53E27400D2A5D6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0F5C4C2B53E27400D2A5D6 /* Constants.swift */; };
-		DD0F5C4F2B53E30700D2A5D6 /* ColorPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0F5C4E2B53E30700D2A5D6 /* ColorPickerView.swift */; };
 		DD0F5C512B53E8DD00D2A5D6 /* DrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0F5C502B53E8DD00D2A5D6 /* DrawingView.swift */; };
-		DD0F5C532B53E93700D2A5D6 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0F5C522B53E93700D2A5D6 /* Line.swift */; };
-		DD0F5C552B53EE9400D2A5D6 /* DrawingEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0F5C542B53EE9400D2A5D6 /* DrawingEngine.swift */; };
 		DD23607D2B556DEA00FE277F /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD23607C2B556DEA00FE277F /* ModelData.swift */; };
 		DD23607F2B556E6400FE277F /* SubjectsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD23607E2B556E6400FE277F /* SubjectsList.swift */; };
 		DD2360832B5588FC00FE277F /* PencilKitCanvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2360822B5588FC00FE277F /* PencilKitCanvas.swift */; };
 		DD38A9BD2B5D83F800508310 /* Reminders.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD38A9BC2B5D83F800508310 /* Reminders.swift */; };
+		DD38A9C12B5DA59300508310 /* SubjectStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD38A9C02B5DA59300508310 /* SubjectStruct.swift */; };
+		DD38A9C32B5DA60A00508310 /* NoteStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD38A9C22B5DA60A00508310 /* NoteStruct.swift */; };
+		DD38A9C52B5DA62E00508310 /* ReminderClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD38A9C42B5DA62E00508310 /* ReminderClass.swift */; };
 		DDADE33F2B5ABA5800F4CFB5 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDADE33E2B5ABA5800F4CFB5 /* Notification.swift */; };
 		DDD54CAF2B5961460006B835 /* DrawingHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD54CAE2B5961460006B835 /* DrawingHeader.swift */; };
 		DDD54CB12B5970930006B835 /* ReminderRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD54CB02B5970930006B835 /* ReminderRow.swift */; };
 		DDD71B032B56C84A00162E08 /* NotesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD71B022B56C84A00162E08 /* NotesList.swift */; };
 		DDF5820F2B540CA0003A5178 /* FileManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF5820E2B540CA0003A5178 /* FileManger.swift */; };
-		DDF582112B542A09003A5178 /* TimeTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF582102B542A09003A5178 /* TimeTable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,21 +32,19 @@
 		DD0F5C402B53DEDA00D2A5D6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		DD0F5C422B53DEDB00D2A5D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD0F5C452B53DEDB00D2A5D6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		DD0F5C4C2B53E27400D2A5D6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		DD0F5C4E2B53E30700D2A5D6 /* ColorPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerView.swift; sourceTree = "<group>"; };
 		DD0F5C502B53E8DD00D2A5D6 /* DrawingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingView.swift; sourceTree = "<group>"; };
-		DD0F5C522B53E93700D2A5D6 /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
-		DD0F5C542B53EE9400D2A5D6 /* DrawingEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingEngine.swift; sourceTree = "<group>"; };
 		DD23607C2B556DEA00FE277F /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		DD23607E2B556E6400FE277F /* SubjectsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectsList.swift; sourceTree = "<group>"; };
 		DD2360822B5588FC00FE277F /* PencilKitCanvas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PencilKitCanvas.swift; sourceTree = "<group>"; };
 		DD38A9BC2B5D83F800508310 /* Reminders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminders.swift; sourceTree = "<group>"; };
+		DD38A9C02B5DA59300508310 /* SubjectStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectStruct.swift; sourceTree = "<group>"; };
+		DD38A9C22B5DA60A00508310 /* NoteStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteStruct.swift; sourceTree = "<group>"; };
+		DD38A9C42B5DA62E00508310 /* ReminderClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderClass.swift; sourceTree = "<group>"; };
 		DDADE33E2B5ABA5800F4CFB5 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		DDD54CAE2B5961460006B835 /* DrawingHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingHeader.swift; sourceTree = "<group>"; };
 		DDD54CB02B5970930006B835 /* ReminderRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderRow.swift; sourceTree = "<group>"; };
 		DDD71B022B56C84A00162E08 /* NotesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesList.swift; sourceTree = "<group>"; };
 		DDF5820E2B540CA0003A5178 /* FileManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManger.swift; sourceTree = "<group>"; };
-		DDF582102B542A09003A5178 /* TimeTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,9 +80,6 @@
 				DD0F5C3E2B53DEDA00D2A5D6 /* NotepadApp.swift */,
 				DD2360812B55881000FE277F /* Views */,
 				DD2360802B5587FC00FE277F /* Model */,
-				DD0F5C522B53E93700D2A5D6 /* Line.swift */,
-				DD0F5C4E2B53E30700D2A5D6 /* ColorPickerView.swift */,
-				DD0F5C4C2B53E27400D2A5D6 /* Constants.swift */,
 				DD0F5C422B53DEDB00D2A5D6 /* Assets.xcassets */,
 				DD0F5C442B53DEDB00D2A5D6 /* Preview Content */,
 			);
@@ -105,9 +98,9 @@
 			isa = PBXGroup;
 			children = (
 				DDF5820E2B540CA0003A5178 /* FileManger.swift */,
-				DD0F5C542B53EE9400D2A5D6 /* DrawingEngine.swift */,
 				DD2360822B5588FC00FE277F /* PencilKitCanvas.swift */,
 				DD23607C2B556DEA00FE277F /* ModelData.swift */,
+				DD38A9C62B5DA69000508310 /* Structures */,
 				DDADE33E2B5ABA5800F4CFB5 /* Notification.swift */,
 			);
 			path = Model;
@@ -117,15 +110,32 @@
 			isa = PBXGroup;
 			children = (
 				DD0F5C402B53DEDA00D2A5D6 /* ContentView.swift */,
-				DD0F5C502B53E8DD00D2A5D6 /* DrawingView.swift */,
-				DDD54CAE2B5961460006B835 /* DrawingHeader.swift */,
-				DDF582102B542A09003A5178 /* TimeTable.swift */,
+				DD38A9C72B5DA72F00508310 /* DrawingCanvas */,
 				DD23607E2B556E6400FE277F /* SubjectsList.swift */,
 				DDD54CB02B5970930006B835 /* ReminderRow.swift */,
 				DD38A9BC2B5D83F800508310 /* Reminders.swift */,
 				DDD71B022B56C84A00162E08 /* NotesList.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		DD38A9C62B5DA69000508310 /* Structures */ = {
+			isa = PBXGroup;
+			children = (
+				DD38A9C42B5DA62E00508310 /* ReminderClass.swift */,
+				DD38A9C22B5DA60A00508310 /* NoteStruct.swift */,
+				DD38A9C02B5DA59300508310 /* SubjectStruct.swift */,
+			);
+			path = Structures;
+			sourceTree = "<group>";
+		};
+		DD38A9C72B5DA72F00508310 /* DrawingCanvas */ = {
+			isa = PBXGroup;
+			children = (
+				DD0F5C502B53E8DD00D2A5D6 /* DrawingView.swift */,
+				DDD54CAE2B5961460006B835 /* DrawingHeader.swift */,
+			);
+			path = DrawingCanvas;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,23 +208,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD0F5C4F2B53E30700D2A5D6 /* ColorPickerView.swift in Sources */,
 				DDD54CAF2B5961460006B835 /* DrawingHeader.swift in Sources */,
 				DD38A9BD2B5D83F800508310 /* Reminders.swift in Sources */,
 				DD0F5C412B53DEDA00D2A5D6 /* ContentView.swift in Sources */,
 				DD0F5C512B53E8DD00D2A5D6 /* DrawingView.swift in Sources */,
 				DDADE33F2B5ABA5800F4CFB5 /* Notification.swift in Sources */,
 				DD2360832B5588FC00FE277F /* PencilKitCanvas.swift in Sources */,
-				DD0F5C552B53EE9400D2A5D6 /* DrawingEngine.swift in Sources */,
-				DDF582112B542A09003A5178 /* TimeTable.swift in Sources */,
-				DD0F5C532B53E93700D2A5D6 /* Line.swift in Sources */,
+				DD38A9C32B5DA60A00508310 /* NoteStruct.swift in Sources */,
+				DD38A9C52B5DA62E00508310 /* ReminderClass.swift in Sources */,
 				DDF5820F2B540CA0003A5178 /* FileManger.swift in Sources */,
 				DD23607D2B556DEA00FE277F /* ModelData.swift in Sources */,
 				DD0F5C3F2B53DEDA00D2A5D6 /* NotepadApp.swift in Sources */,
 				DDD54CB12B5970930006B835 /* ReminderRow.swift in Sources */,
 				DD23607F2B556E6400FE277F /* SubjectsList.swift in Sources */,
 				DDD71B032B56C84A00162E08 /* NotesList.swift in Sources */,
-				DD0F5C4D2B53E27400D2A5D6 /* Constants.swift in Sources */,
+				DD38A9C12B5DA59300508310 /* SubjectStruct.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

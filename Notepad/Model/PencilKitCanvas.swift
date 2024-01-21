@@ -16,7 +16,7 @@ struct PencilKitCanvas: UIViewRepresentable {
     var lineWidth: CGFloat = 1.0
 
     func makeUIView(context: Context) -> PKCanvasView {
-        canvasView.drawingPolicy = .anyInput
+        canvasView.drawingPolicy = .pencilOnly
         canvasView.tool = PKInkingTool(.pen, color: UIColor(color), width: lineWidth)
         
 

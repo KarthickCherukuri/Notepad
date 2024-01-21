@@ -30,7 +30,7 @@ struct NotesList: View {
             Section{
                 if (!modelData.subjectsList.isEmpty && subjectIndex < modelData.subjectsList.count && !modelData.subjectsList[subjectIndex].reminders.isEmpty){
                     ForEach(modelData.subjectsList[subjectIndex].reminders){reminder in
-                        ReminderRow(reminder:reminder,subject: subject)
+                        ReminderRow(reminder:reminder,subjectId: subject.id)
                     }
                 }
                 

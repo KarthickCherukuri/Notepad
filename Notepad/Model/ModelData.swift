@@ -7,14 +7,17 @@
 
 import Foundation
 import UserNotifications
+import Combine
 
 @Observable
 class ModelData{
-    var subjectsList:[subject]=[subject(name:"Vlsi"),
-                                subject(name:"DSP"),
-                                subject(name:"Control Systens")]
+    
+    var subjectsList:[subject]
+    
+     var remindersChanged = PassthroughSubject<Void, Never>()
     
     init(){
+        self.subjectsList=[]
         self.subjectsList=loadData()
     }
     func saveData() {
@@ -46,133 +49,32 @@ class ModelData{
             return paths[0]
         }
     
-    
-}
-
-struct subject:Identifiable,Hashable,Codable{
-    var id:UUID
-    var name:String
-    var notes:[note]
-    var reminders:[Reminder]
-    
-    func deleteALLNotes(){
-        let fileManager=FileManagerStruct()
-        if(!self.notes.isEmpty){
-            for note in self.notes{
-                fileManager.deleteDrawing(fileName: note.name)
-                print("deleted \(note.name)")
+     var allReminders: [Reminder] {
+            var allReminders: [Reminder] = []
+            for subject in subjectsList {
+                allReminders.append(contentsOf: subject.reminders)
             }
-        }
-        
-        
-    }
-    
-    init(name:String){
-        id=UUID()
-        self.name=name
-        self.reminders=[]
-        self.notes=[note(name: "\(name) lecture 1")]
-    }
-}
-
-struct note:Identifiable,Hashable,Codable{
-    var id:UUID
-    var name:String
-    
-    init(name:String){
-        id=UUID()
-        self.name=name
-    }
-    
-    
-}
-
-class Reminder:Identifiable,Codable,Hashable{
-    var id:UUID
-    var task:String
-    var deadline:Date?
-    var notificationId: String?
-    var subjectId:UUID
-    init(task:String,subjectId:UUID,_ deadline:Date? = nil){
-        self.id=UUID()
-        self.task=task
-        self.deadline=deadline
-        self.subjectId=subjectId
-        if(deadline != nil){
-            scheduleNotification { newNotificationId in
-                DispatchQueue.main.async {
-                    
-                    self.notificationId = newNotificationId
-                    print("scheduled notification to \(self.deadline ?? Date(timeIntervalSince1970: 1) )")
-                }
+            allReminders.sort { (reminder1, reminder2) -> Bool in
+                let date1 = reminder1.deadline ?? Date.distantFuture
+                let date2 = reminder2.deadline ?? Date.distantFuture
+                return date1 > date2
             }
+            return allReminders
         }
-    }
-    
-    func changeNotificationId(notificationID:String?){
-        self.notificationId=notificationID
-    }
-    
-    func change(task: String, deadline: Date?) {
-            self.task = task
-            if deadline != self.deadline {
-                self.cancelNotification()
-                self.deadline = deadline
-                scheduleNotification { newNotificationId in
-                    DispatchQueue.main.async {
-                        self.notificationId = newNotificationId
-                        print("scheduled notification to \(self.deadline ?? Date(timeIntervalSince1970: 1) )")
-                    }
-                }
-            }
-        }
-    
-//    private  func scheduleNotification(completion: @escaping (String?) -> Void) {
-//        guard let deadline = deadline else { return }
-//        
-//        let content = UNMutableNotificationContent()
-//        content.title = "Reminder"
-//        content.body = task
-//        content.sound = UNNotificationSound.default
-//        
-//        let triggerDate = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: deadline)
-//        let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
-//        
-//        let request = UNNotificationRequest(identifier: id.uuidString, content: content, trigger: trigger)
-//        
-//        UNUserNotificationCenter.current().add(request) { (error) in
-//            if let error = error {
-//                print("Error scheduling notification: \(error)")
-//                completion(nil)
-//            } else {
-//                completion(request.identifier)
-//            }
-//        }
-//    }
-    
-    private func scheduleNotification(completion: @escaping (String?) -> Void) {
-        if let subjectIndex=ModelData().subjectsList.firstIndex(where: {$0.id == self.subjectId}){
-            let subjectName=ModelData().subjectsList[subjectIndex].name
-            NotificationManager.shared.notify(subjectName:subjectName,task: self.task, deadline: self.deadline!, completion: completion)
-        }
-        
-    }
-    
-    private  func cancelNotification() {
-        guard let notificationId = notificationId else { return }
-        
-        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [notificationId])
-        
-        self.notificationId = nil
-    }
 
-    static func == (lhs: Reminder, rhs: Reminder) -> Bool {
-        return lhs.id == rhs.id
+    func deleteReminder(from subjectIndex: Int,reminderID:UUID) {
+        
+        self.subjectsList[subjectIndex].deleteReminder(reminderId: reminderID)
+        self.saveData()
+        remindersChanged.send()
+        
     }
     
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(id)
-    }
     
 }
+
+
+
+
+
 

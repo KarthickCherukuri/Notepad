@@ -8,11 +8,36 @@
 import SwiftUI
 
 struct Reminders: View {
+    @Environment(ModelData.self) var modelData
+    @State private var AllReminders:[Reminder]=[]
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack{
+            if(!AllReminders.isEmpty){
+                List{
+                    
+                    
+                    ForEach(AllReminders){reminder in
+                        ReminderRow(reminder: reminder, subjectId: reminder.subjectId)
+                        
+                    }
+                }
+                
+            }
+            else{
+                Text("No reminders")
+            }
+            
+        }.onAppear{
+            self.AllReminders=modelData.allReminders
+        }
+        .onReceive(modelData.remindersChanged, perform: { _ in
+            self.AllReminders=modelData.allReminders
+        })
     }
+        
 }
 
 #Preview {
     Reminders()
+        .environment(ModelData())
 }

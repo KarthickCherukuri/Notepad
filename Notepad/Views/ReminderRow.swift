@@ -10,20 +10,22 @@ import SwiftUI
 struct ReminderRow: View {
     @Environment(\.calendar) var calendar
     @Environment(ModelData.self) var modelData
-    init(reminder:Reminder,subject:subject){
+    init(reminder:Reminder,subjectId:UUID){
         self.reminder=reminder
-        self.subject=subject
+        self.subjectId=subjectId
+        
         self.settedName=reminder.task
         self.settedDate=reminder.deadline
     }
     var reminder: Reminder
-    var subject : subject
+    var subjectId : UUID
     @State private var shoingPopup:Bool=false
     @State private var newEditedReminderName:String=""
     @State private var dateRequired:Bool = false
     @State private var reminderDate:Date=Date(timeIntervalSinceNow: 3600)
     @State private var settedName:String=""
     @State private var settedDate:Date?
+    @State private var currentDateTime:Date=Date()
     var body: some View {
         
             HStack{
@@ -32,7 +34,7 @@ struct ReminderRow: View {
                     if let deadline = settedDate {
                         Text(getDateString(from: deadline))
                             .font(.subheadline)
-                            .foregroundColor(.gray)
+                            .foregroundColor(deadline > currentDateTime ? .gray : .red)
                     }
                 }
                 Spacer()
@@ -49,13 +51,14 @@ struct ReminderRow: View {
                             DatePicker("Date", selection: $reminderDate)
                         }
                         Button{
-                            if let subjectIndex=modelData.subjectsList.firstIndex(where:{$0.id == subject.id}){
+                            if let subjectIndex=modelData.subjectsList.firstIndex(where:{$0.id == subjectId}){
                                 if let reminderIndex=modelData.subjectsList[subjectIndex].reminders.firstIndex(where:{$0.id == reminder.id}){
                                     modelData.subjectsList[subjectIndex].reminders[reminderIndex].change(task: newEditedReminderName, deadline: dateRequired ? reminderDate : nil)
                                     self.shoingPopup=false
                                     self.settedDate=dateRequired ? reminderDate : nil
                                     self.settedName=newEditedReminderName
                                     modelData.saveData()
+                                    
                                 }
                             }
                         }label: {
@@ -69,9 +72,9 @@ struct ReminderRow: View {
             
             .swipeActions{
                 Button{
-                    if let subjectIndex=modelData.subjectsList.firstIndex(where: {$0.id == subject.id}){
+                    if let subjectIndex=modelData.subjectsList.firstIndex(where: {$0.id == subjectId}){
                         withAnimation{
-                            modelData.subjectsList[subjectIndex].reminders.removeAll(where: {$0.id==reminder.id})
+                            modelData.deleteReminder(from: subjectIndex, reminderID: reminder.id)
                         }
                         
                     }
@@ -82,6 +85,7 @@ struct ReminderRow: View {
                 
                 
             }.onAppear{
+                self.currentDateTime=Date()
                 self.newEditedReminderName=reminder.task
                 self.dateRequired = reminder.deadline != nil
                 self.settedName=reminder.task
@@ -115,6 +119,6 @@ struct ReminderRow: View {
 #Preview {
     let modelData=ModelData()
     
-    return ReminderRow(reminder: Reminder(task:"submit dsp",subjectId: modelData.subjectsList[0].id, Date(timeIntervalSince1970: 2)),subject: modelData.subjectsList[0])
+    return ReminderRow(reminder: Reminder(task:"submit dsp",subjectId: modelData.subjectsList[0].id, Date(timeIntervalSince1970: 2)),subjectId: modelData.subjectsList[0].id)
         .environment(modelData)
 }

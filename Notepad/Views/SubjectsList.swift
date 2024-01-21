@@ -7,6 +7,11 @@
 
 import SwiftUI
 
+enum Tab{
+    case subjects,reminders
+}
+
+
 struct SubjectsList: View {
     
     @Environment(ModelData.self) var modelData:ModelData
@@ -17,9 +22,22 @@ struct SubjectsList: View {
     @State private var editingSubject:subject?
     @State private var newEditedSubjectName:String=""
     @State private var deletingSubject:subject?
+    @State private var  selectedTab:Tab = .subjects
+
     var body: some View {
         NavigationView{
+                        
             List{
+                Section{
+                    NavigationLink{
+                        Reminders()
+                    }label: {
+                        Text("All Reminders")
+                       
+                    }
+                    
+                }
+                
                 if(!modelData.subjectsList.isEmpty){
                     
                     
@@ -100,7 +118,17 @@ struct SubjectsList: View {
                     }
                 }
             }
+           
             .navigationTitle("Subjects")
+            .onReceive(NotificationCenter.default.publisher(for: NSNotification.Name("NotificationClicked"))) { notification in
+            if let subjectName = notification.userInfo?["subjectName"] as? String {
+                
+                selectedSubject = modelData.subjectsList.first(where: { $0.name == subjectName })
+            }
+        
+
+        }
+            
 
             .onAppear{
                 
@@ -143,17 +171,12 @@ struct SubjectsList: View {
                     .padding()
                 }
             }
-        }
-        .onReceive(NotificationCenter.default.publisher(for: NSNotification.Name("NotificationClicked"))) { notification in
-            if let subjectName = notification.userInfo?["subjectName"] as? String {
-                
-                selectedSubject = modelData.subjectsList.first(where: { $0.name == subjectName })
-            }
-        }
-
+             
+             }
+              }
         
         }
-    }
+    
 
 
 #Preview {
