@@ -7,8 +7,12 @@
 
 import SwiftUI
 
+
+
 struct ContentView:View{
+    
     var body: some View{
+        
         SubjectsList()
             .environment(ModelData())
     }
