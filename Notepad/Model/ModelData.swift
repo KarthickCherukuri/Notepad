@@ -12,12 +12,12 @@ import Combine
 @Observable
 class ModelData{
     
-    var subjectsList:[subject]
+    var subjectsList:[subject]=[]
     
      var remindersChanged = PassthroughSubject<Void, Never>()
     
     init(){
-        self.subjectsList=[]
+        
         self.subjectsList=loadData()
     }
     func saveData() {

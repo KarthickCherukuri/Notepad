@@ -17,6 +17,10 @@ class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
 
     func notify(subjectName:String,task:String,deadline:Date,completion: @escaping (String?) -> Void) {
         let content = UNMutableNotificationContent()
+        if #available(iOS 15.0, *) {
+                content.interruptionLevel = .timeSensitive
+            print("time sensitive")
+            }
         content.title = subjectName
         content.body = task
         content.userInfo = ["subjectName": subjectName]

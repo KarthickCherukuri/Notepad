@@ -37,6 +37,6 @@ struct subject:Identifiable,Hashable,Codable{
         id=UUID()
         self.name=name
         self.reminders=[]
-        self.notes=[note(name: "\(name) lecture 1")]
+        self.notes=[]
     }
 }
